@@ -19,9 +19,9 @@ run:
       source /opt/resource/common.sh
       start_docker
       log_in $USERNAME $PASSWORD
-      echo docker pull $source_repository:$tag
-      echo docker tag $source_repository:$tag $REPOSITORY:$tag
-      echo docker push $REPOSITORY:$tag
+      docker pull $source_repository:$tag
+      docker tag $source_repository:$tag $REPOSITORY:$tag
+      docker push $REPOSITORY:$tag
 
 params:
   USERNAME:
