@@ -1,0 +1,4 @@
+package: github.com/databus23/concourse-image-repository-resource
+import:
+- package: github.com/mitchellh/colorstring
+- package: github.com/hashicorp/go-version

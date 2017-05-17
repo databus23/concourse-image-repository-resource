@@ -1,0 +1,8 @@
+hash: 1e30b67eba46dc57686c296d8440369c588fc2719acb340168236271bfce4bd7
+updated: 2017-05-16T15:15:24.85699795+02:00
+imports:
+- name: github.com/hashicorp/go-version
+  version: 999359b6b7a041ce16e695d51e92145b83f01087
+- name: github.com/mitchellh/colorstring
+  version: 8631ce90f28644f54aeedcb3e389a85174e067d1
+testImports: []
