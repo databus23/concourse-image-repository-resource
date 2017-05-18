@@ -1,5 +1,5 @@
 IMAGE:=databus23/repository-image-resource
-TAG:=0.1
+TAG:=0.2
 
 ifneq ($(http_proxy),)
 BUILD_ARGS+= --build-arg http_proxy=$(http_proxy) --build-arg https_proxy=$(https_proxy) --build-arg no_proxy=$(no_proxy)

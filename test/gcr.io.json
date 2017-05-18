@@ -1,7 +1,6 @@
 {
   "source": {
-    "repository": "gcr.io/google_containers/kubedns-amd64",
-    "regex": "test"
+    "repository": "gcr.io/google_containers/kubedns-amd64"
   },
   "version": {
     "tag": "1.2"

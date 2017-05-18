@@ -49,21 +49,20 @@ func Check(request CheckRequest) ([]Version, error) {
 		tags = data.Tags
 
 	}
+	if request.Source.Regex != "" {
+		VersionRegex = regexp.MustCompile(request.Source.Regex)
+	}
 	versionGiven := request.Version.Tag != ""
 	if versionGiven {
 		if err := request.Version.Parse(); err != nil {
 			Fatal("Invalid version given", err)
 		}
 	}
-	filter := regexp.MustCompile(request.Source.Regex)
 	versions := Versions{}
 	for _, raw := range tags {
-		if !filter.MatchString(raw) {
-			continue
-		}
 		v, err := NewVersion(raw)
 		if err != nil {
-			Sayf("Skipping tag %s. Not a version I understand\n", raw)
+			Sayf("Skipping tag %s: %s\n", raw, err)
 			continue
 		}
 

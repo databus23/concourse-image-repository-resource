@@ -1,9 +1,9 @@
 {
   "source": {
     "repository": "quay.io/coreos/etcd",
-    "regex":"^v[234][.0-9]*$"
+    "regex":"^v([2-9][.0-9]+)$"
   },
   "version": {
-    "tag": "0.0.0"
+    "tag": "v2.0.0"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "source": {
+    "repository": "quay.io/coreos/hyperkube",
+    "regex":"^v([.0-9]+)_(coreos\\.\\d+)$"
+  },
+  "version": {
+    "tag": "v0.0.0_coreos.0"
+  }
+}
