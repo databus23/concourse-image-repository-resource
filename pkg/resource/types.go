@@ -1,10 +1,13 @@
 package resource
 
 import (
-	"strings"
+	"fmt"
+	"regexp"
 
 	"github.com/hashicorp/go-version"
 )
+
+var VersionRegex = regexp.MustCompile("^v?(.*)$")
 
 type Source struct {
 	Repository string `json:"repository"`
@@ -18,7 +21,21 @@ type Version struct {
 }
 
 func (v *Version) Parse() (err error) {
-	v.Version, err = version.NewVersion(strings.TrimLeft(v.Tag, "v"))
+	match := VersionRegex.FindStringSubmatch(v.Tag)
+
+	if match == nil {
+		return fmt.Errorf("Tag %s filtered by regex", v.Tag)
+	}
+	switch len(match) {
+	case 1:
+		v.Version, err = version.NewVersion(match[0])
+	case 2:
+		v.Version, err = version.NewVersion(match[1])
+	case 3:
+		v.Version, err = version.NewVersion(fmt.Sprintf("%s-%s", match[1], match[2]))
+	default:
+		v.Version, err = version.NewVersion(fmt.Sprintf("%s-%s+%s", match[1], match[2], match[3]))
+	}
 	return
 }
 

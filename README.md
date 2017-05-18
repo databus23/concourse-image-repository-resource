@@ -11,7 +11,7 @@ It only considers semver-ish complaints tags
 
 * `repository`: *Required.* The image repository to watch (e.g. quay.io/coreos/etcd)
 
-* `regex`: Only consider tags matching the given regex.
+* `regex`: Filter image tags using this regex. This is also useful for extracting the version information if the tag is not semver compliant. It the regex contains no subexpressions the match is taken as the version. If it contains 1 subexpression it is considered as the version. An optional second and third subexpression are interpreted as pre-release and patch information.
 
 
 ### `check`: Discover image versions 
@@ -26,7 +26,7 @@ Creates the following files:
  * `repository`: the repository from the source configuration. 
  * `tag`: the image tag 
 
-### `out`: not implmented
+### `out`: not implemented
 
 
 ### Resource
